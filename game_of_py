@@ -5,7 +5,7 @@ import os
 import copy
 
 #COSTANTI
-CELL = "*"
+CELL = "█"
 TIME_SLEEP = 0.5
 NULL = " "
 griglia = []
@@ -41,60 +41,60 @@ def calcolo_conway(griglia_n):
     for i in range(lunghezza):
         for j in range(larghezza):
             try:
-                if griglia[count_y][count_x + 1] == "*":
+                if griglia[count_y][count_x + 1] == "█":
                     cellule_vicine += 1
             except IndexError:
                 cellule_vicine +=0
             try:
-                if griglia[count_y + 1][count_x + 1] == "*":
+                if griglia[count_y + 1][count_x + 1] == "█":
                     cellule_vicine += 1
             except IndexError:
                 cellule_vicine +=0
             try:
-                if griglia[count_y + 1][count_x] == "*":
+                if griglia[count_y + 1][count_x] == "█":
                     cellule_vicine += 1
             except IndexError:
                 cellule_vicine +=0
             if count_x - 1 >= 0:
                 try:
-                    if griglia[count_y + 1][count_x - 1] == "*":
+                    if griglia[count_y + 1][count_x - 1] == "█":
                         cellule_vicine += 1
                 except IndexError:
                     cellule_vicine +=0
             if count_x - 1 >= 0:
                 try:
-                    if griglia[count_y][count_x - 1] == "*":
+                    if griglia[count_y][count_x - 1] == "█":
                         cellule_vicine += 1
                 except IndexError:
                     cellule_vicine +=0
             if count_x - 1 >= 0 and count_y - 1 >= 0:
                 try:
-                    if griglia[count_y - 1][count_x - 1] == "*":
+                    if griglia[count_y - 1][count_x - 1] == "█":
                         cellule_vicine += 1
                 except IndexError:
                     cellule_vicine +=0
             if count_y - 1 >= 0:
                 try:
-                    if griglia[count_y - 1][count_x] == "*":
+                    if griglia[count_y - 1][count_x] == "█":
                         cellule_vicine += 1
                 except IndexError:
                     cellule_vicine +=0
             if count_y - 1 >= 0:
                 try:
-                    if griglia[count_y - 1][count_x + 1] == "*":
+                    if griglia[count_y - 1][count_x + 1] == "█":
                         cellule_vicine += 1
                 except IndexError:
                     cellule_vicine +=0
-            if griglia[count_y][count_x] == "*":
+            if griglia[count_y][count_x] == "█":
                 if cellule_vicine < 2:
                         temp_griglia[count_y][count_x] =  " "
                 elif cellule_vicine == 2 or cellule_vicine == 3:
-                        temp_griglia[count_y][count_x] = "*"
+                        temp_griglia[count_y][count_x] = "█"
                 elif cellule_vicine > 3:
                         temp_griglia[count_y][count_x] = " "
             elif griglia[count_y][count_x] == " ":
                 if cellule_vicine == 3:
-                    temp_griglia[count_y][count_x] = "*"
+                    temp_griglia[count_y][count_x] = "█"
             cellule_vicine = 0
             count_x += 1 
         count_y+= 1
