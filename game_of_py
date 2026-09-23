@@ -6,14 +6,14 @@ import copy
 
 #COSTANTI
 CELL = "█"
-TIME_SLEEP = 0.5
+TIME_SLEEP = 0.1
 NULL = " "
 griglia = []
 
 #CREAZIONE DELLA GRIGLIA
 colonne, righe = os.get_terminal_size()
-lunghezza = righe -1
-larghezza = colonne - 2
+lunghezza = righe -4
+larghezza = colonne -4
 for i in range(lunghezza):
     RIGA = []
     for c in range(larghezza):
@@ -102,8 +102,17 @@ def calcolo_conway(griglia_n):
     count_y = 0
     griglia = copy.deepcopy(temp_griglia)
 
-while True:
-    calcolo_conway(griglia)
-    os.system("clear") 
-    stampa_griglia(griglia)
-    time.sleep(TIME_SLEEP)
+
+
+try:
+    os.system("clear")
+    while True:
+        print("\033[?25l")
+        calcolo_conway(griglia)
+        print("\033[H")
+        stampa_griglia(griglia)
+        time.sleep(TIME_SLEEP)
+except KeyboardInterrupt:
+    pass
+finally:
+    print("\033[?25h")
