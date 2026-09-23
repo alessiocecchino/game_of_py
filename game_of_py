@@ -12,8 +12,8 @@ griglia = []
 
 #CREAZIONE DELLA GRIGLIA
 colonne, righe = os.get_terminal_size()
-lunghezza = righe -4
-larghezza = colonne - 4
+lunghezza = righe -1
+larghezza = colonne - 2
 for i in range(lunghezza):
     RIGA = []
     for c in range(larghezza):
